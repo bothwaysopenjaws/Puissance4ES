@@ -8,7 +8,7 @@
 int ColumnSize(int col, char (*Tab)[10])
 {
 	int i;
-	for (i = 1; Tab[col][i] != '_'; i++);
+	for (i = 1; Tab[i][col] != '_'; i++);
 	return i;
 }
 
@@ -158,7 +158,7 @@ int IsWin(char (*Tab)[10], int x, int y) // Verifie si les conditions de victoir
 void ShowTab( char (*Tab)[10]) // affiche le puissance4
 {
 	int i = 1; // "mot, afficher à la verticale
-	int j  = 7; // colonne
+	int j  = 6; // colonne
 	int fini = -1;
 	char charaff; 
 

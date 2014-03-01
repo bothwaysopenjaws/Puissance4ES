@@ -15,11 +15,11 @@ void	NewGame() // lance une nouvelle partie avec de nouveaux joueurs
 	Joueur joueur2 ;
 	char Tab[][10] = { 
 	  "_________",
-	  "____LA___",
-	  "_PARTIE__",
-	  "____CO___",
-	  "__MMENC__",
-	  "____E____",
+	  "_________",
+	  "_________",
+	  "_________",
+	  "_________",
+	  "_________",
 	  "_________",
 	  "_________",
 
@@ -43,8 +43,7 @@ printf(" bienvenue ! Creation des joueurs : \r\n");
 
 	ShowTab(Tab); // affiche le tableau
 
-	printf("\r\n");
-	system("pause");
+
 
 
 	do
@@ -66,9 +65,7 @@ printf(" bienvenue ! Creation des joueurs : \r\n");
 			printf("saisissez la colonne de votre choix :\r\n");
 			do
 			{
-				scanf("%d%", &saisieUser);
-				printf("%d%",saisieUser);
-				system("pause");
+				scanf("%d", &saisieUser);
 				// verification de la saisie de colonne par le joueur et placement du pion si possible
 
 				if ((saisieUser < 1) | (saisieUser >7)) // verifie que la colonne choisie fait partie du tableau

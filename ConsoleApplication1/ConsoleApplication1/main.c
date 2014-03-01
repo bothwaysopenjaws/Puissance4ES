@@ -9,10 +9,11 @@ Le fichier .h va contenir :
 
 int main()
 {
+	
 	int choix = 0;
 	int gameEnCour = 0;
 
-
+	/*
 	printf("Bienvenue dans le puissance4 le plus puissant du monde (enfin, maybe) !\r\n");
 	printf("O - Quitter\r\n");
 	printf("1 - Nouvelle partie\r\n");
@@ -26,9 +27,9 @@ int main()
 		printf("5 - Reprendre la partie\r\n");
 	}
 
+	*/
 
-
-
+			NewGame();
 
 	do
 	{
@@ -42,7 +43,7 @@ int main()
 		case 1:
 
 			printf("nouvelle partie ! \r\n");
-			NewGame();
+
 			break;
 		case 2:
 			system("pause");
