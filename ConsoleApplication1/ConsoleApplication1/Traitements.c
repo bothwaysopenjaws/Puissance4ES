@@ -2,6 +2,7 @@
 
 // Traitement préparatoire avant la partie
 
+
 void creerjoueur(Joueur *joueur, int id)   // Création d'un joueur
 {
 	char  Nom[100] = { '\0' } ; // variable temp pour le nom du joueur

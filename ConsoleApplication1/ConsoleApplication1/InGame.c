@@ -15,17 +15,24 @@ int ColumnSize(int col, char (*Tab)[10])
 
 
 
-// LIé  END GAME
-int IsEnd(char (*Tab)[10], int x, int y, Joueur joueur, int nbCase)
+// regarde si la partie est finie
+int IsEnd(char (*Tab)[10], int x, int y, int nbCase)
 {
-	if (IsWin(Tab, x, y) == 1)
+	if ((IsWin(Tab, x, y)) == 1)
 	{
-		return joueur.id;
+		return 1;
 	}
 
-	else if (nbCase == 0)
+	else 
 	{
+		if (nbCase == 42)
+		{
 		return 0;
+		}
+		else
+		{
+			return 4;
+		}
 
 	}
 
@@ -36,110 +43,127 @@ quand le curseur se trouve sur un '_', il met fin à la boucle en cours.
 */
 int IsWin(char (*Tab)[10], int x, int y) // Verifie si les conditions de victoires sont réunies
 {
+
+
+
 	int i = 1; // curseur horizontal
 	int j = 1; // curseur vertical
-	int point; // compteur de point aligné
+	int point = 1; // compteur de points alignés, 1 de base du fait du primier pion
 
 
-	point = 0;
 
 
 	// Cas vertical
-	if (Tab[x][y] == Tab[x][y + i])
+	if ((Tab[y][x] == Tab[y][x + i]) || (Tab[y][x] == Tab[y][x - i]))
 	{
-		do
+		
+		while (Tab[y][x] == Tab[y][x + i])
 		{
 			point++;
 			i++;
 
-		} while ((Tab[x][y] == Tab[x][y + i]) && (point <4));
+		}
 
 		i = 1;
-		do
+		while (Tab[y][x] == Tab[y][x - i])
 		{
 			point++;
 			i++;
 
-		} while ((Tab[x][y] == Tab[x][y - i]) && (point <4));
+		}
+
 
 	}
-	if (point == 4)
+	if(point >= 4)
 	{
 		return 1;
+	}else
+	{
+	point = 1;
 	}
-	point = 0;
+	i = 1;
 	// cas horizontale
 
-	if (Tab[x][y] == Tab[x + i][y])
+	if ((Tab[y][x] == Tab[y + i][x]) || (Tab[y][x] == Tab[y - i][x]))
 	{
-		do
+		while (Tab[y][x] == Tab[y + i][x])
 		{
 			point++;
 			i++;
 
-		} while ((Tab[x][y] == Tab[x + i][y]) && (point <4));
-
-		i = 0;
-		do
+		}
+		i = 1;
+		while (Tab[y][x] == Tab[y - i][x])
 		{
 			point++;
 			i++;
 
-		} while ((Tab[x][y] == Tab[x - i][y]) && (point <4));
+		}		
 
 	}
-	if (point == 4)
+	if(point >= 4)
 	{
 		return 1;
-	}
-	point = 0;
-
-	// première bissectrice
-	if (Tab[x][y] == Tab[x + i][y + i])
+	}else
 	{
-		do
+	point = 1;
+	}
+
+	i = 1;
+	// première bissectrice
+
+
+	if ((Tab[y][x] == Tab[y + i][x + i]) || (Tab[y][x] == Tab[y - i][x - i]))
+	{
+
+		while (Tab[y][x] == Tab[y + i][x + i])
 		{
 			point++;
 			i++;
 
-		} while ((Tab[x][y] == Tab[x + i][y + j]) && (point <4));
+		}
+
 
 		i = 1;
-		j = 1;
-		do
+		while (Tab[y][x] == Tab[y - i][x - i])
 		{
 			point++;
 			i++;
 
-		} while ((Tab[x][y] == Tab[x - i][y - j]) && (point <4));
+		}
+
 
 	}
-	if (point == 4)
+
+	if(point >= 4)
 	{
 		return 1;
-	}
-	point = 0;
-
-	// dernière bissectrice
-	if (Tab[x][y] == Tab[x + i][y])
+	}else
 	{
-		do
+		point = 1;
+	}
+
+	i = 1;
+	// dernière bissectrice
+
+	if ((Tab[y][x] == Tab[x + i][x]) || (Tab[y][x] == Tab[y - i][x - i]))
+	{
+		while (Tab[y][x] == Tab[y + i][x - i])
 		{
 			point++;
 			i++;
-			j++;
 
-		} while ((Tab[x][y] == Tab[x + i][y - i]) && (point <4));
+		}
 
-		i = 0;
-		do
+
+		i = 1;
+
+		while (Tab[y][x] == Tab[y - i][x + i])
 		{
 			point++;
 			i++;
-			j++;
 
-		} while ((Tab[x][y] == Tab[x - i][y + 1]) && (point <4));
-
+		}
 	}
 
 

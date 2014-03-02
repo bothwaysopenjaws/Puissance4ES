@@ -5,7 +5,6 @@
 #include<stdio.h>
 #include<string.h>
 
-
 typedef struct joueur Joueur;
 
 struct joueur
